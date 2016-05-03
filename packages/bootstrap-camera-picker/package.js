@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function (api) {
     api.versionsFrom('1.2.1');
     api.use(['ecmascript', "templating", "blaze", "less", "reactive-var"]);
-    api.use('jaaaco:meteor-camera@0.0.1', 'client');
+    api.use('jaaaco:meteor-camera@0.0.2', 'client');
     api.addFiles('preview.html','client');
     api.addFiles('preview.js','client');
     api.export('BootstrapCameraPicker');
