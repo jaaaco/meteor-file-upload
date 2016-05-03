@@ -1,0 +1,19 @@
+<template name="BootstrapCameraPickerPreview">
+    <div id="BootstrapCameraPickerPreview" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    {{#if hasPhoto}}
+                        <button type="button" class="btn btn-default BootstrapFileUploadPreview-cancel">Zrób nowe </button>
+                        <button type="button" class="btn btn-primary BootstrapFileUploadPreview-take-photo">Użyj zdjęcia</button>
+                    {{else}}
+                        <button type="button" class="btn btn-default BootstrapFileUploadPreview-cancel">Zamknij</button>
+                        <button type="button" class="btn btn-primary BootstrapFileUploadPreview-take-photo">Zrób zdjęcie</button>
+                    {{/if}}
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</template>
