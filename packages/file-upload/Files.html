@@ -1,0 +1,71 @@
+<template name="Files">
+
+
+    <div style="border-style: dashed" class="well text-center">
+        Przeciągnij tutaj plik lub <button class="files-get-picture btn-default btn btn-xsmall"><i class="fa fa-camera"></i> zrób zdjęcie</button>
+    </div>
+
+    {{#if files.count}}
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="width: 2em"></th>
+                <th>Nazwa pliku</th>
+                <th style="width: 25%">Kategoria</th>
+                <th>Status</th>
+                <th style="width: 10em;"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each files}}
+                <tr class="show-on-hover">
+                    <td style="width: 10em">
+                        {{#if isImage}}
+                            <img src="/files/display/{{_id}}" class="img-responsive img-rounded">
+                        {{else}}
+                            <i class="fa fa-3x {{getIcon}}"></i>
+                        {{/if}}
+                    </td>
+                    <td><a target="_blank" href="/files/{{_id}}">{{name}}</a><br><span class="text-muted">{{type}} {{getFileSize size}}</span></td>
+                    <td>{{>Dictionary collection='Files' object=this field='category' uuid=getDictionaryUuid}}</td>
+                    <td>
+                        {{#if _eq status 'upload'}}
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{upload.progress}}%;">
+                                    {{upload.progress}}%
+                                </div>
+                            </div>
+                        {{/if}}
+                        {{#if _eq status 'error'}}
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Błąd: </strong> {{error}}
+                            </div>
+                        {{/if}}
+                        {{#if _eq status 'completed'}}
+                            <i class="fa fa-user"></i> {{users.username}} <span class="text-muted">{{momentCelandar date}}</span>
+                        {{/if}}
+                    </td>
+                    <td>
+                        <div class="show-on-hover-element btn-group">
+                            <a target="_blank" href="/files/display/{{_id}}" class="files-show btn btn-sm btn-default" >
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a target="_blank" href="/files/{{_id}}" class="files-download btn btn-sm btn-default" >
+                                <i class="fa fa-download"></i>
+                            </a>
+                            <a type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-gear"></i> <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu-right dropdown-menu" role="menu">
+                                <li><a data-collection="Files" data-id="{{_id}}" class="deletable" href="#"><i class="fa fa-trash-o"></i> Usuń plik</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+
+    {{/if}}
+</template>

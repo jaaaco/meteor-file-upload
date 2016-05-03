@@ -1,0 +1,10 @@
+<template name="FilesGallery">
+
+    {{#if files.count}}
+
+        {{#each files}}
+            <img class="img-responsive img-rounded" src="/files/display/{{_id}}">
+        {{/each}}
+
+    {{/if}}
+</template>
