@@ -1,6 +1,6 @@
 Package.describe({
     name: 'jaaaco:file-upload-thin',
-    version: '0.0.4',
+    version: '0.0.5',
     // Brief, one-line summary of the package.
     summary: 'File upload control with gallery',
     // URL to the Git repository containing the source code for this package.
@@ -11,14 +11,14 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
-    api.versionsFrom('1.2.1');
+    api.versionsFrom('1.3.2.4');
 
-    api.use('blaze-html-templates', 'client');
+    api.use('blaze-html-templates');
     api.use('ecmascript');
-    api.use('jaaaco:template-logic@0.0.2', 'client');
+    api.use('jaaaco:template-logic@0.0.2');
     api.use('wfirma:dot@0.0.2');
     api.use('iron:router@1.0.12');
-    api.use('jaaaco:bootstrap-camera-picker@0.0.2', 'client');
+    api.use('jaaaco:bootstrap-camera-picker@0.0.5');
 
     api.export('Files',['server','client']);
 
